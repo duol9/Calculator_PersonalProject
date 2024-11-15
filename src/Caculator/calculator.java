@@ -21,7 +21,7 @@ public class calculator {
 
             if (num1 >= 0 && num2 >= 0) { // num1, num2가 양수라면
 
-                System.out.print("사칙연산 기호(➕,➖,✖️,➗)를 입력하세요. : ");
+                System.out.print("사칙연산 기호(+, -, *, /)를 입력하세요. : ");
 
                 String ops = sc.nextLine();
                 char op = ops.charAt(0);
