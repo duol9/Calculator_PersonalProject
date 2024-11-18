@@ -60,7 +60,7 @@ public class App {
                 int i = 1;
 
                 for (int res : calculator.getResultQueue()) {
-                    System.out.println(++i + ". " + res);
+                    System.out.println(i++ + ". " + res);
                 }
             } else if (cal_op == 3) {
                 //3. 종료하기 선택 시 반복문을 빠져나와 프로그램 종료
