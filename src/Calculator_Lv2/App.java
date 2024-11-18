@@ -2,9 +2,9 @@ package Calculator_Lv2;
 
 import java.util.Scanner;
 
-// 1. Caculator 객체 생성
+// 1. Calculator 객체 생성
 // 2. 연산에 필요한 정보들을 입력받고
-// 3. Caclulator에서 연산이 작동할 수 있도록 구현
+// 3. Calculator 에서 연산이 작동할 수 있도록 구현
 // 4. 계산 기록 삭제를 원할 때, Calculator.클래스 removeResult() 메소드가 작동할 수 있도록 구현
 // 5. 계산기를 종료하고 싶을 때까지 무한으로 연산을 실행할 수 있도록 구현
 
