@@ -15,7 +15,7 @@ public class App {
         while(true) {
             System.out.println("<계산기를 실행합니다.>");
             System.out.println("1. 계산기 ");
-            System.out.println("2. 최근 계산 기록 삭제하기");
+            System.out.println("2. 계산 기록 삭제하기");
             System.out.println("3. 계산기 종료하기");
             System.out.print("옵션을 입력하세요. : ");
             cal_op = sc.nextInt();
