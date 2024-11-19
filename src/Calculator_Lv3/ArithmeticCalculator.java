@@ -33,6 +33,7 @@ public class ArithmeticCalculator <T>  {
                 result = div(num1, num2);
                 break;
             default:
+                throw new IllegalArgumentException("지원하지 않는 연산자입니다.");
         }
 
         resultQue.add(result);
