@@ -48,7 +48,7 @@ public class ArithmeticCalculator <T>  {
     private T sum (T addNum1, T addNum2) { // 확인되지 않는 예외는 thorws 키워드를 사용하지 않아도 됨
         T result;
 
-        if (addNum1 instanceof Double && addNum2 instanceof Double) {  // instanceof ; addNum1이 Double 타입인지 확인 후 (true / false)로 반환 (=클래스 거짓판별기)
+        if (addNum1 instanceof Double || addNum2 instanceof Double) {  // instanceof ; addNum1이 Double 타입인지 확인 후 (true / false)로 반환 (=클래스 거짓판별기)
             return (T) Double.valueOf((double)addNum1 + (double)addNum2); // 객체 addNum1, addNum2를 double타입으로 언박싱 후, 덧셈 연산을 하고 Double 객체 타입으로 박싱함. -> 다시 제네릭 타입으로
         } else if (addNum1 instanceof Integer && addNum2 instanceof Integer) {
             return  (T) Integer.valueOf((int)addNum1 + (int)addNum2);
@@ -93,4 +93,15 @@ public class ArithmeticCalculator <T>  {
         }
     }
 
+    public void removeResult(){
+        resultQue.remove();
+    }
+
+    public Queue<T> getResultQue() {
+        return resultQue;
+    }
+
+    public void setResultQue(Queue<T> resultQue) {
+        this.resultQue = resultQue;
+    }
 }
