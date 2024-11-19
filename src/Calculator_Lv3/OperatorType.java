@@ -20,7 +20,8 @@ public enum OperatorType {
         return symbol;
     }
 
-    public OperatorType searchBySymbol (String symbol){
+    // enum은 생성자를 만들 수 없기 때문에 static을 사용해 직접 호출할 수 있도록 함
+    public static OperatorType searchBySymbol (String symbol){
         for (OperatorType op : values()) { // values()를 사용해 OperatorType enum에 들어있는 상수들을 순차적으로 op에 반환
             if (op.symbol.equals(symbol)) return op; // 매개변수로 받은 symbol이 OperatorType enum 상수와 일치한지 확인 후, 일치하면 해당 op(symbol) 반환
         }
