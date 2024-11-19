@@ -40,37 +40,56 @@ public class ArithmeticCalculator <T>  {
     }
 
 
-    // 1. num1, num2 모두 Integer 타입
-    // 2. num1은 Integer, num2 는 Double
-    // 3. num1은 Double, num2는 Integer
-    // 4. num1, num2 모두 Double 타입
+    // 1. num1, num2 모두 Double 타입
+    // 4. num1, num2 모두 Integer 타입
 
     // 덧셈 연산
-    private T sum (T addNum1, T addNum2) {
+    private T sum (T addNum1, T addNum2) { // 확인되지 않는 예외는 thorws 키워드를 사용하지 않아도 됨
+        T result;
 
-        if (addNum1 instanceof Integer && addNum2 instanceof Integer) {  // instanceof ; addNum1이 Integer 타입인지 확인 (true / false)로 반환
-            return (T) Integer.valueOf((int)addNum1 + (int)addNum2); // 객체 addNum1, addNum2를 int타입으로 언박싱 후, 덧셈 연산을 하고 Integer 객체 타입으로 박싱함. -> 다시 제네릭 타입으로
-        } else if (addNum1 instanceof Integer && addNum2 instanceof Double) {
-            return (T) Double.valueOf((double)addNum1 + (double)addNum2);
-        } else if (addNum1 instanceof Double && addNum2 instanceof Integer) {
-            return (T) Double.valueOf((double)addNum1 + (double)addNum2);
-        } else if (addNum1 instanceof Double && addNum2 instanceof Double) {
-            return (T) Double.valueOf((double)addNum1 + (double)addNum2);
+        if (addNum1 instanceof Double && addNum2 instanceof Double) {  // instanceof ; addNum1이 Double 타입인지 확인 후 (true / false)로 반환 (=클래스 거짓판별기)
+            return (T) Double.valueOf((double)addNum1 + (double)addNum2); // 객체 addNum1, addNum2를 double타입으로 언박싱 후, 덧셈 연산을 하고 Double 객체 타입으로 박싱함. -> 다시 제네릭 타입으로
+        } else if (addNum1 instanceof Integer && addNum2 instanceof Integer) {
+            return  (T) Integer.valueOf((int)addNum1 + (int)addNum2);
+        } else {
+            // IllegalArgumentException : 지정한 타입이 아닌 다른 타입이 들어오면 예외 처리 함
+            throw new IllegalArgumentException("이 계산기는 Integer, Double 타입만 지원합니다.");
         }
-
-        throw new IllegalArgumentException("Integer 또는 Double이 아닌 타입으로 입력이 됐습니다."); // 확인되지 않는 에외이기 때문에 메소드에 throws 키워드 붙이지 않아도 됨
-                                                                                                    // IllegalArgumentException : 지정한 타입이 아닌 다른 타입이 들어오면 예외 처리 함
     }
-
+    // 뺄셈연산
     private T sub (T subNum1, T subNum2) {
-        return
+        if (subNum1 instanceof Double && subNum2 instanceof Double) {
+            return (T) Double.valueOf((double)subNum1 - (double)subNum2);
+        } else if (subNum1 instanceof Integer && subNum2 instanceof Integer) {
+            return (T) Integer.valueOf((int)subNum1 + (int)subNum2);
+        } else {
+            throw new IllegalArgumentException("이 계산기는 Integer, Double 타입만 지원합니다.");
+        }
     }
+    // 곱셈 연산
     private T mul (T mulNum1, T mulNum2) {
-        return
+        if (mulNum1 instanceof Double && mulNum2 instanceof Double) {
+            return (T) Double.valueOf((double)mulNum1 * (double)mulNum2);
+        } else if (mulNum1 instanceof Integer && mulNum2 instanceof Integer) {
+            return (T) Integer.valueOf((int)mulNum1 + (int)mulNum2);
+        } else {
+            throw new IllegalArgumentException("이 계산기는 Integer, Double 타입만 지원합니다.");
+        }
     }
 
+    // 나눗셈 연산
+    // 니눗셈 연산은 1. 분모에 0이 오는지 확인 . 2. 지원하지 않는 피연산자 타입 2가지의 예외 사항을 처리 해야 함
     private T div (T divNum1, T divNum2) {
-        return
+        if (divNum1 instanceof Double && divNum2 instanceof Double) {
+            if ((double)divNum2 == 0) {
+                throw new ArithmeticException("분모에 0이 올 수 없습니다.");   // 분모에 해당하는 피연산자의 값이 0이면 ArithmeticException으로 예외처리
+            }
+            return (T) Double.valueOf((double)divNum1 * (double)divNum2);
+        } else if (divNum1 instanceof Integer && divNum2 instanceof Integer) {
+            return (T) Integer.valueOf((int)divNum1 + (int)divNum2);
+        } else {
+            throw new IllegalArgumentException("이 계산기는 Integer, Double 타입만 지원합니다.");
+        }
     }
 
 }
