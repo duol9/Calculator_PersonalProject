@@ -15,7 +15,7 @@ public class ArithmeticCalculator <T>  {
 
     // 기능(메소드)
     // 어떤 타입이 피연산자가 될지 모르니 리턴 타입도 제네릭으로 설정
-    // 외부 클래스에서 매개 변수를 받아와서 public
+    // 외부 클래스에서 매개 변수를 받아와야 하니까 public
     public T calculate (T num1, T num2, OperatorType op) {
         T result;
 
