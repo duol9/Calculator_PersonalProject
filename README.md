@@ -57,7 +57,23 @@ Java로 구현된 콘솔 기반 계산기 애플리케이션의 개선된 버전
    - 프로그램 종료
 
 ## 프로젝트 구조
-
+### 주요 구현 사항
+1. Calculator 클래스 구현:
+   - 연산 결과를 저장하는 private Queue<Integer> 필드 생성
+   - 사칙연산을 수행하고 결과를 반환하는 calculate() 메소드 구현
+   - 가장 먼저 저장된 연산 결과를 삭제하는 removeResult() 메소드 구현
+   - resultQueue에 대한 getter와 setter 메소드 구현 (캡슐화)
+2. App 클래스 수정:
+   - Calculator 인스턴스 생성 및 활용
+   - 연산을 수행하는 calculate() 호출
+   - 가장 먼저 입력된 계산 기록을 삭제하는 removeResult() 호출
+3. 기능 확장:
+   - 무한 연산 수행 (사용자가 'exit' 입력하기 전까지)
+   - 계산기 옵션 메뉴 추가 (계산 수행, 기록 삭제, 종료)
+4. 캡슐화 적용:
+- Calculator 클래스의 resultQueue를 private으로 선언
+- getter와 setter 메소드를 통한 간접 접근 구현
+  
 ### App 클래스
 
 #### 주요 변수:
@@ -115,21 +131,4 @@ Java로 구현된 콘솔 기반 계산기 애플리케이션의 개선된 버전
 4. `setResultQueue(Queue<Integer> resultQueue)`:
    - 매개변수: Queue<Integer> 타입의 새로운 resultQueue
    - 기능: resultQueue 설정 (setter 메소드)
-
-  
-## 흐름 과정
-1. Calculator 인스턴스 생성
-2. 무한 반복 시작 (사용자가 옵션3(종료하기)을 선택할 때까지)
-   - 계산기 옵션 표시 및 사용자 입력 받기
-   - 옵션에 따른 처리:
-     - 계산 수행
-       - 두 정수와 연산자 입력 받기
-       - Calculator의 calculate 메소드 호출해 계산 수행
-       - 결과 출력
-       - 계속 사용 여부 확인 (exit 입력 시 종료)  
-     - 가장 먼서 계산된 기록 삭제
-       - Calculator의 removeResult 메소드 호출해 기록 삭제
-       - 남은 기록 출력
-     - 종료
-       - 프로그램 종 
 
