@@ -47,7 +47,9 @@ Java로 구현된 간단한 콘솔 기반 계산기 애플리케이션의 향상
 5. 계산기 종료를 선택한 경우:
    - 프로그램 종료
   
-## 주요 구현 사항
+## 프로젝트 구조
+
+### 주요 구현 사항
 - 제네릭 사용: ArithmeticCalculator<T>를 통해 다양한 숫자 타입 지원
 - Enum 활용: OperatorType을 통한 연산자 관리
 - 예외 처리:
@@ -55,7 +57,6 @@ Java로 구현된 간단한 콘솔 기반 계산기 애플리케이션의 향상
   - 지원하지 않는 타입(연산자, 피연산자) 입력 시 IllegalArgumentException 발생
 - 타입 변환: stringToNumber 메소드를 통해 문자열을 적절한 숫자 타입으로 변환
   
-## 프로젝트 구조
 ### App 클래스
 #### 주요 변수:
 - arithmeticCalculator: ArithmeticCalculator<Number> 클래스의 인스턴스
