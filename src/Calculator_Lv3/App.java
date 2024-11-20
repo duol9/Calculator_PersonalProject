@@ -3,6 +3,22 @@ package Calculator_Lv3;
 import java.util.Scanner;
 
 public class App {
+
+    private static Number stringToNumber (String s_num) {
+        Number num;
+        try {
+            if (s_num.contains(".")) {
+                num = Double.valueOf(s_num);
+            } else {
+                num = Integer.valueOf(s_num);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("지원하지 않는 타입입니다.");
+            num = null;
+        }
+
+        return num;
+    }
     public static void main(String[] args) {
 
         ArithmeticCalculator<Number> arithmeticCalculator = new ArithmeticCalculator<>(); // arithmeticCalculator 인스턴스 생성
@@ -31,11 +47,12 @@ public class App {
                 // 그 후엔 계산을 종료한다는 의미인 'exit'를 변수 exit_str에 입력받기 전까지 연산을 반복
                 do {
                     System.out.print("첫 번째 숫자를 입력하세요 : ");
-                    num1 = sc.nextInt();
+                    s_num1 = sc.next();
+                    num1 = stringToNumber(s_num1);
+                    sc.nextLine();
                     System.out.print("두 번째 숫자를 입력하세요 : ");
-                    num2 = sc.nextInt();
-
-                    // nextInt로 인해 생긴 버퍼 비우기
+                    s_num2 = sc.next();
+                    num2 = stringToNumber(s_num2);
                     sc.nextLine();
 
                     if (num1.doubleValue() >= 0 && num2.doubleValue() >= 0) { // num1, num2가 양수라면 연산 수행
