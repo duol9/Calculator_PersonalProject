@@ -62,7 +62,7 @@ public class ArithmeticCalculator <T>  {
         if (subNum1 instanceof Double && subNum2 instanceof Double) {
             return (T) Double.valueOf((double)subNum1 - (double)subNum2);
         } else if (subNum1 instanceof Integer && subNum2 instanceof Integer) {
-            return (T) Integer.valueOf((int)subNum1 + (int)subNum2);
+            return (T) Integer.valueOf((int)subNum1 - (int)subNum2);
         } else {
             throw new IllegalArgumentException("이 계산기는 Integer, Double 타입만 지원합니다.");
         }
