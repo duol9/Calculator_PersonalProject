@@ -1,8 +1,8 @@
-package Caculator;
+package Caculator_Lv1;
 
 import java.util.Scanner;
 
-public class calculator {
+public class Calculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String exit_str = null;
